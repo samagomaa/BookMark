@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Bookmarker</title>
+    <link rel="shortcut icon" href="images/bookmark.png" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <div class="heading">
+            <h1 class="text-center my-5">Bookmarker</h1>
+        </div>
+        <div class="py-5 text-center">
+            <h4>
+                <i class="fa-solid fa-bookmark"></i>
+                Bookmark your favorite sites
+                <i class="fa-solid fa-bookmark"></i>
+            </h4>
+        </div>
+        <div>
+            <form class="mx-auto position-relative">
+                <label for="bookName" class="fw-bold fs-6"> 
+                    <i class="fa-solid fa-book-bookmark mx-2"></i>
+                    Site Name
+                </label>
+                <input type="text" id="bookName" class="form-control mt-2 focus-ring" placeholder="Bookmark Name" style="--bs-focus-ring-color: rgba(var(--bs-warning-rgb), .4)">
+                <label for="bookUrl" class="fw-bold mt-4 fs-6"> 
+                    <i class="fa-solid fa-link"></i>
+                    Site URL
+                </label>
+                <input type="text" id="bookUrl" class="form-control mt-2 focus-ring" placeholder="Website URL"  style="--bs-focus-ring-color: rgba(var(--bs-warning-rgb), .4)">
+                <button type="button" onclick="addBook()" class="btn btn-danger px-5 fw-medium mt-5 position-relative top-100 start-50 translate-middle" style="--bs-btn-bg: #d1512d;"> Submit</button>
+            </form>
+        </div>
+        <table class="table my-5 text-center">
+            <thead>
+            
+                <th>Index</th>
+                <th>Website Name</th>
+                <th>Visit</th>
+                <th>Delete</th>
+            </thead>
+            <tbody id="bookStore">
+            </tbody>
+        </table>
+    </div>
+    <div id="modelBox" >
+        <div id="innerBox" class="container rounded position-relative">
+                <i id="closeEl" class="close fa-solid fa-xmark fa-2xl position-absolute top-0 end-0 m-4"></i>
+                <div id="circle" class="rounded-circle position-relative top-0 start-0 my-4 mx-1" style="background-color: #f15f5d; display: inline-block;"></div>
+                <div id="circle" class="rounded-circle position-relative top-0 start-0 my-4 mx-1" style="background-color: #febe2e; display: inline-block;"></div>
+                <div id="circle" class="rounded-circle position-relative top-0 start-0 my-4 mx-1" style="background-color: #4db748; display: inline-block;"></div>
+                <div class="row mt-3">
+                    <h5 class="fw-bold fs-4">Site Name or Url is not valid, Please follow the rules below :</h5>
+                    <div class="rules px-4 fw-medium fs-5">
+                        <p>
+                            <i class="fa-regular fa-circle-right" style="color: #bb4120;"></i>
+                            Site name must contain at least 3 characters
+                        </p>
+                        <p>
+                            <i class="fa-regular fa-circle-right"  style="color: #bb4120;"></i>
+                            Site URL must be a valid one
+                        </p>
+                    </div>
+                    
+                </div>
+                
+        </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
