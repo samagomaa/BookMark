@@ -19,7 +19,7 @@ function displayBook() {
         temp += `<tr class="align-baseline">
         <td>`+ (i+1) +`</td>
         <td>`+ bookList[i].name +`</td>
-        <td><a href="http://${bookList[i].url}" target="_blank">
+        <td><a href="${bookList[i].url}" target="_blank">
             <button class="btn btn-success p-2">
                 <i class="fa-solid fa-eye px-1"></i>
                 Visit
@@ -82,7 +82,7 @@ function validName(){
     }
 }
 function validUrl(){
-    var regexUrl = /^(http(s):\/\/.)[A-Za-z]{20,200}$/
+    var regexUrl = /^(http(s):\/\/.)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/
     if(regexUrl.test(bookUrl.value)){
         bookUrl.classList.add("is-valid")
         bookUrl.classList.remove("is-invalid")

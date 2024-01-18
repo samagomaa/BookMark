@@ -5,28 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <title>Bookmarker</title>
     <link rel="shortcut icon" href="images/bookmark.png" type="image/x-icon">
 </head>
 <body>
     <div class="container">
-        <div class="heading">
+        <div class="heading w-100 d-flex justify-content-center">
             <h1 class="text-center my-5">Bookmarker</h1>
         </div>
-        <div class="py-5 text-center">
-            <h4>
+        <div class="subHeading py-4 text-center">
                 <i class="fa-solid fa-bookmark"></i>
-                Bookmark your favorite sites
+                <span>Bookmark your favorite sites</span>
                 <i class="fa-solid fa-bookmark"></i>
-            </h4>
         </div>
         <div>
             <form class="mx-auto position-relative">
                 <label for="bookName" class="fw-bold fs-6"> 
-                    <i class="fa-solid fa-book-bookmark mx-2"></i>
+                    <i class="fa-solid fa-book-bookmark"></i>
                     Site Name
                 </label>
                 <input type="text" id="bookName" class="form-control mt-2 focus-ring" placeholder="Bookmark Name" style="--bs-focus-ring-color: rgba(var(--bs-warning-rgb), .4)">
@@ -38,42 +35,86 @@
                 <button type="button" onclick="addBook()" class="btn btn-danger px-5 fw-medium mt-5 position-relative top-100 start-50 translate-middle" style="--bs-btn-bg: #d1512d;"> Submit</button>
             </form>
         </div>
-        <table class="table my-5 text-center">
-            <thead>
-            
-                <th>Index</th>
-                <th>Website Name</th>
-                <th>Visit</th>
-                <th>Delete</th>
-            </thead>
-            <tbody id="bookStore">
-            </tbody>
-        </table>
-    </div>
-    <div id="modelBox" >
-        <div id="innerBox" class="container rounded position-relative">
-                <i id="closeEl" class="close fa-solid fa-xmark fa-2xl position-absolute top-0 end-0 m-4"></i>
-                <div id="circle" class="rounded-circle position-relative top-0 start-0 my-4 mx-1" style="background-color: #f15f5d; display: inline-block;"></div>
-                <div id="circle" class="rounded-circle position-relative top-0 start-0 my-4 mx-1" style="background-color: #febe2e; display: inline-block;"></div>
-                <div id="circle" class="rounded-circle position-relative top-0 start-0 my-4 mx-1" style="background-color: #4db748; display: inline-block;"></div>
-                <div class="row mt-3">
-                    <h5 class="fw-bold fs-4">Site Name or Url is not valid, Please follow the rules below :</h5>
-                    <div class="rules px-4 fw-medium fs-5">
-                        <p>
-                            <i class="fa-regular fa-circle-right" style="color: #bb4120;"></i>
-                            Site name must contain at least 3 characters
-                        </p>
-                        <p>
-                            <i class="fa-regular fa-circle-right"  style="color: #bb4120;"></i>
-                            Site URL must be a valid one
-                        </p>
-                    </div>
-                    
-                </div>
+        <div class="py-1 position-relative">
+            <table class="table my-3 text-center ">
+                <thead>
                 
+                    <th>Index</th>
+                    <th>Website Name</th>
+                    <th>Visit</th>
+                    <th>Delete</th>
+                </thead>
+                <tbody id="bookStore">
+                </tbody>
+            </table>
         </div>
     </div>
-    <script src="js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Alert model -->
+        <div id="modelBox" class="modal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered w-100">
+              <div class="modal-content">
+                <div class="modal-header border-0">
+                    <div id="circle" style="background-color: #f15f5d;"></div>
+                    <div id="circle" style="background-color: #febe2e;"></div>
+                    <div id="circle" style="background-color: #4db748;"></div>
+                  <button id="closeEl" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mt-3">
+                        <h5 class="fw-bold fs-4">Site Name or Url is not valid, Please follow the rules below :</h5>
+                        <div class="rules px-3 mb-2 fs-5">
+                            <div>
+                                <i class="fa-regular fa-circle-right" style="color: #bb4120;"></i>
+                                <span class="fw-normal">Site name must contain at least 3 characters</span>
+                            </div>
+                            <div>
+                                <i class="fa-regular fa-circle-right" style="color: #bb4120;"></i>
+                                <span class="fw-normal">Site URL must be a valid one</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+    <!-- <div id="modelBox" >
+        <div id="innerBox" class="container rounded position-relative">
+            <div class="container">
+                <div class="innerHeader d-flex justify-content-between align-items-center my-4">
+                    <div class="leftHeader">
+                        <div id="circle" style="background-color: #f15f5d;"></div>
+                        <div id="circle" style="background-color: #febe2e;"></div>
+                        <div id="circle" style="background-color: #4db748;"></div>
+                    </div>
+                    <div class="rightHeader">
+                        <i id="closeEl" class="close fa-solid fa-xmark fa-2xl "></i>
+                    </div>
+                </div>
+                    
+                    <div class="mt-3">
+                        <h5 class="fw-bold fs-4">Site Name or Url is not valid, Please follow the rules below :</h5>
+                        <div class="rules px-3 mb-2 fs-5">
+                            <div>
+                                <i class="fa-regular fa-circle-right" style="color: #bb4120;"></i>
+                                <span class="fw-normal">Site name must contain at least 3 characters</span>
+                            </div>
+                            <div>
+                                <i class="fa-regular fa-circle-right" style="color: #bb4120;"></i>
+                                <span class="fw-normal">Site URL must be a valid one</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+            </div>
+            
+                
+        </div>
+    </div> -->
+    <script src="https://kit.fontawesome.com/62cf307394.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
