@@ -71,7 +71,7 @@ bookName.addEventListener("keyup", validName)
 bookUrl.addEventListener("keyup", validUrl)
 
 function validName() {
-    var regexName = /^[A-Za-z]{3,100}$/
+    var regexName = /^[A-Za-z ]{3,100}$/
     if (regexName.test(bookName.value)) {
         bookName.classList.add("is-valid")
         bookName.classList.remove("is-invalid")
