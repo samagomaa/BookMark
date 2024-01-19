@@ -51,6 +51,7 @@ function addBook() {
             bookList.push(book)
             localStorage.setItem("data", JSON.stringify(bookList))
             displayBook(bookList)
+            clearForm()
         }
         else {
             modelBox.style.display = "flex"
@@ -59,6 +60,12 @@ function addBook() {
     else {
         modelBox.style.display = "flex"
     }
+}
+function clearForm() {
+    bookName.value = "";
+    bookUrl.value  = "";
+    bookName.classList.remove("is-valid")
+    bookUrl.classList.remove("is-valid")
 }
 
 function deleteBook(x) {
@@ -71,7 +78,7 @@ bookName.addEventListener("keyup", validName)
 bookUrl.addEventListener("keyup", validUrl)
 
 function validName() {
-    var regexName = /^[A-Za-z ]{3,100}$/
+    var regexName = /^[A-Za-z]{3,100}$/
     if (regexName.test(bookName.value)) {
         bookName.classList.add("is-valid")
         bookName.classList.remove("is-invalid")
